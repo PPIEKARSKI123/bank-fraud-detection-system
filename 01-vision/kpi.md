@@ -1,6 +1,6 @@
 # Kluczowe Wskaźniki Efektywności (KPI) – System Obsługi Fraudów
 
-Dokument definiuje metryki, które pozwolą bankowi ocenić, czy nowy system skutecznie optymalizuje proces przyjmowania zgłoszeń i chroni środki klientów.
+Dokument definiuje wskaźniki, które pozwolą bankowi ocenić, czy nowy system skutecznie optymalizuje proces przyjmowania zgłoszeń i chroni środki klientów.
 
 | ID | Nazwa wskaźnika | Opis | Cel wdrożenia systemu |
 | :--- | :--- | :--- | :--- |
