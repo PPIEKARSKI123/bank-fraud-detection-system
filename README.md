@@ -11,6 +11,11 @@ Projekt łączy perspektywę biznesową i techniczną:
 1. **Warstwa Biznesowa (BPMN 2.0):** Przepływ procesu obsługi klienta (od weryfikacji tożsamości po analizę lewych transakcji).
 2. **Warstwa Danych (PostgreSQL):** Znormalizowana relacyjna baza danych obsługująca zgłoszenia (Tickets), transakcje kartowe i przelewy.
 
+## Użyte narzędzia
+* ADONIS - modelowanie BPMN.
+* pgAdmin - projektowanie relacyjnej bazy danych, zarządzanie środowiskiem oraz tworzenie skryptów DDL/DML.
+* GitHub - dokumentacja projektu.
+
 ## Struktura repozytorium
 * `01-vision` - Wizja projektu, cele, KPI i słowniczek pojęć.
 * `02-bpmn` - Diagramy procesów end-to-end.
