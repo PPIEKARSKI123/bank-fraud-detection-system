@@ -12,6 +12,6 @@ Projekt łączy perspektywę biznesową i techniczną:
 2. **Warstwa Danych (PostgreSQL):** Znormalizowana relacyjna baza danych obsługująca zgłoszenia (Tickets), transakcje kartowe i przelewy.
 
 ## Struktura repozytorium
-* `01-vision` - Założenia biznesowe i kontekst projektu.
+* `01-vision` - Wizja projektu, cele, KPI i słowniczek pojęć.
 * `02-bpmn` - Diagramy procesów end-to-end.
 * `03-database` - Skrypty SQL (DDL/DML), słownik pojęć oraz diagram ERD.
