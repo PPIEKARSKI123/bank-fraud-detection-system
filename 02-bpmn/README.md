@@ -5,12 +5,12 @@ Przedstawiają one ścieżkę obsługi klienta zgłaszającego nieautoryzowane t
 
 ## Zawartość
 
-| Plik | Typ | Opis i główne reguły biznesowe |
+| Plik | Opis | Główne bramki / reguły biznesowe |
 | :--- | :--- | :--- |
-| `01-Fraud-Kartowy.png` | **Proces Główny** | Koordynuje całą ścieżkę obsługi. Rozpoczyna się od automatycznego zablokowania podejrzanej transakcji i kontaktu klienta z infolinią. Obejmuje blokady dostępów, wywoływanie podprocesów weryfikacyjnych oraz wysłanie formularza zgłoszeniowego na końcu procesu. |
-| `02-Weryfikacja-Klienta.png` | **Podproces** | Weryfikacja tożsamości dzwoniącego. Reguły: Wymagana pozytywna ankieta weryfikacyjna oraz uwierzytelnienie 2FA (weryfikacja kodu SMS wysłanego na numer z bazy). |
-| `03-Weryfikacja-Transakcji.png` | **Podproces** | Iteracyjny przegląd historii operacji kartowych. Klient potwierdza lub nie wykonanie każdej transakcji z listy; nieautoryzowane operacje trafiają do bazy zgłoszeń fraudowych. |
-| `04-Weryfikacja-Przelewow.png` | **Podproces** | Przegląd zleconych przelewów. Reguły: Możliwość natychmiastowego anulowania przelewu przez konsultanta, jeśli jego status w systemie bankowym to "oczekuje na realizację". |
+| `01-Fraud-Kartowy.png` | **Proces Główny:** Koordynuje całą ścieżkę obsługi. Rozpoczyna się od automatycznego zablokowania podejrzanej transakcji i kontaktu klienta z infolinią. Obejmuje blokady dostępów, wywoływanie podprocesów weryfikacyjnych oraz wysłanie formularza. | BR-01 – blokada prewencyjna transakcji<br>BR-02 – wymagana weryfikacja tożsamości |
+| `02-Weryfikacja-Klienta.png` | **Podproces:** Weryfikacja tożsamości dzwoniącego. | BR-03 – uwierzytelnianie 2FA (ankieta + kod SMS) |
+| `03-Weryfikacja-Transakcji.png` | **Podproces:** Iteracyjny przegląd historii operacji kartowych. | BR-04 – izolacja i zapis nieautoryzowanych transakcji |
+| `04-Weryfikacja-Przelewow.png` | **Podproces:** Przegląd zleconych przelewów. | BR-05 – anulowanie tylko przelewów oczekujących |
 
 ## Notacja i konwencje
 * Diagramy opracowano w standardzie **BPMN 2.0**.
