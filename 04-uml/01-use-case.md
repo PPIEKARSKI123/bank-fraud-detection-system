@@ -18,5 +18,3 @@ Architektura modułu opiera się na separacji logowania od weryfikacji dwuetapow
 
 ### Diagram
 ![Diagram Przypadków Użycia](01-use-case.png)
-
-_Diagram opracowano w notacji UML (Use Case Diagram) w narzędziu draw.io._
