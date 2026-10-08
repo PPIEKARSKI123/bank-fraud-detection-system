@@ -1,6 +1,6 @@
 # 4. Diagram Sekwencji (Sequence Diagram) – Komunikacja API w procesie autoryzacji
 
-Diagram Sekwencji przedstawia dynamiczny (rozłożony w czasie) aspekt architektury systemu. Obrazuje on dokładną wymianę komunikatów i wywołań sieciowych między aplikacją kliencką, serwerem banku (API) oraz systemami zewnętrznymi, niezbędną do realizacji procesu bezpiecznego logowania.
+Diagram Sekwencji przedstawia architekturę systemu. Obrazuje ona dokładną wymianę komunikatów i wywołań sieciowych między aplikacją kliencką, serwerem banku (API) oraz systemami zewnętrznymi, niezbędną do realizacji procesu bezpiecznego logowania.
 
 ### Uczestnicy procesu
 * **Użytkownik** – inicjuje proces i wprowadza dane.
@@ -10,10 +10,10 @@ Diagram Sekwencji przedstawia dynamiczny (rozłożony w czasie) aspekt architekt
 
 ### Opis przebiegu głównego (Ścieżka sukcesu)
 
-1. **Inicjalizacja:** Użytkownik wprowadza poświadczenia, a Aplikacja bankowa wysyła żądanie `POST /api/auth/login` do API Autoryzacji.
+1. **Inicjalizacja:** Użytkownik wprowadza dane do logowania, a Aplikacja bankowa wysyła żądanie `POST /api/auth/login` do API Autoryzacji.
 2. **Wewnętrzna weryfikacja serwera (Self-calls):** 
    * API wykonuje wywołanie `authenticate()`, aby zweryfikować poprawność hasła na poziomie bazy danych.
-   * Następnie uruchamiana jest metoda `checkSecurityStatus()`, badająca profil klienta pod kątem oflagowania fraudowego.
+   * Następnie uruchamiana jest metoda `checkSecurityStatus()`, badająca profil klienta pod kątem blokady antyfraudowej.
 3. **Generowanie i wysyłka 2FA:** Po pomyślnej weryfikacji API generuje kod OTP (`generateCode()`) i deleguje jego wysyłkę do systemu zewnętrznego poprzez wywołanie `POST /api/sms/send`.
 4. **Weryfikacja drugiego składnika:** 
    * Użytkownik wprowadza otrzymany kod w aplikacji, co skutkuje wysłaniem żądania `POST /api/auth/verify`.
