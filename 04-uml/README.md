@@ -1,29 +1,24 @@
-# 🏦 System Autoryzacji Bankowej (Anti-Fraud & 2FA)
+# Analiza systemowa (UML) – Moduł Autoryzacji i Bezpieczeństwa
 
-Projekt przedstawia kompleksową analizę systemową i obiektową modułu bezpiecznego logowania do bankowości elektronicznej. 
+Folder zawiera modele architektoniczne i strukturalne opracowane w notacji **UML**. Przedstawiają one proces logowania do bankowości elektronicznej z perspektywy systemowej, począwszy od wymagań wysokopoziomowych, aż po szczegółową komunikację sieciową (REST API) i hermetyzację danych. Główny nacisk położono na weryfikację dwuetapową (2FA) oraz prewencję fraudową.
 
-Celem projektu jest udokumentowanie architektury procesu autoryzacji z uwzględnieniem rygorystycznych reguł bezpieczeństwa, takich jak weryfikacja dwuetapowa (2FA), zarządzanie sesją oraz mechanizmy prewencji fraudowej (Fail-Fast).
+## 🔗 Zawartość
 
-## 📌 Kluczowe założenia biznesowe i techniczne
+| Plik | Opis | Kluczowe reguły / mechanizmy |
+| :--- | :--- | :--- |
+| `01-use-case.md` | **Diagram Przypadków Użycia:** <br>Definiuje granice systemu, głównych aktorów oraz dostępne metody uwierzytelniania. | **Zależności UML:**<br>• `<<include>>` (wymuszone 2FA)<br>• `<<extend>>` (rozszerzenia dla blokady i wyboru metody SMS/PUSH) |
+| `02-activity-diagram.md` | **Diagram Aktywności:** <br>Wizualizuje algorytmiczny przepływ sterowania, pętle decyzyjne oraz ścieżki alternatywne (wyjątki). | **Security Rules:**<br>• BR-01: Fail-Fast (natychmiastowa blokada)<br>• BR-02: Limit błędnych prób (max 5)<br>• BR-03: Session Timeout (3 min) |
+| `03-class-diagram.md` | **Diagram Klas:** <br>Przedstawia statyczny model domeny, strukturyzację danych oraz relacje między obiektami. | **Paradygmaty:**<br>• SRP (Separacja profilu bezpieczeństwa od danych usera)<br>• Hermetyzacja (passwordHash) |
+| `04-sequence-diagram.md` | **Diagram Sekwencji:** <br>Modeluje wymianę komunikatów w czasie między frontendem, API i systemami zewnętrznymi. | **Architektura API:**<br>• Wywołania REST (`POST`)<br>• Self-calls (wewnętrzna weryfikacja)<br>• Generowanie kodów OTP |
 
-Projekt został zaprojektowany w oparciu o architekturę **Client-Server** z wykorzystaniem komunikacji **REST API** (protokół HTTP). Zaimplementowano w nim następujące reguły:
-* **Prewencja Fraudowa (Fail-Fast):** Natychmiastowa blokada żądań logowania dla kont oflagowanych w systemie bezpieczeństwa.
-* **Ochrona Brute-Force:** Automatyczna blokada dostępu po przekroczeniu limitu 5 nieudanych prób logowania.
-* **Kody OTP (One-Time Password):** Krótki czas życia (Time-to-Live) drugiego składnika autoryzacji (maksymalnie 3 minuty na wprowadzenie kodu).
-* **Zasada Pojedynczej Odpowiedzialności (SRP):** Logika użytkownika, sesji oraz profilu bezpieczeństwa zostały odseparowane na poziomie modelu domenowego.
+## 🔗 Notacja i konwencje
 
-## 📂 Struktura dokumentacji (Diagramy UML)
+* **Standard i Podejście:** Diagramy opracowano w standardzie UML 2.5. Zastosowano podejście analityczne *Top-Down* (od ogółu biznesowego do szczegółu implementacyjnego), aby zachować spójność logiczną całego modułu.
+* **Aktorzy i Systemy:** Na diagramach Use Case i Sequence wyraźnie oddzielono użytkownika końcowego od zewnętrznych systemów infrastrukturalnych, stosując stereotyp `<<system>>` (np. dla Bramki SMS).
+* **Tory (Swimlanes):** Na diagramie aktywności zastosowano podział na tory (Użytkownik / System bankowy), precyzyjnie rozdzielając akcje wykonywane na urządzeniu klienta od logiki przetwarzanej na serwerze banku.
+* **Bramki i Warunki (Guards):** Ścieżki decyzyjne na diagramach aktywności i sekwencji oznaczono jasnymi warunkami w nawiasach kwadratowych (np. `[proby>5]`, `[isDigitalBankingBlocked = True]`), które stanowią bezpośrednie wytyczne do napisania logiki warunkowej w kodzie.
+* **Komunikacja i API:** Na diagramie sekwencji zastosowano konwencję nazewnictwa charakterystyczną dla architektury Client-Server i protokołu HTTP, modelując wywołania do konkretnych endpointów (np. `POST /api/auth/login`) oraz statusy odpowiedzi (`200 OK`).
 
-Dokumentacja została podzielona na cztery etapy, od ujęcia wysokopoziomowego (biznesowego) po szczegóły implementacyjne (techniczne). Kliknij w poniższe linki, aby przejść do szczegółowych analiz:
+## 🔗 Cel folderu
 
-1. [**Diagram Przypadków Użycia (Use Case Diagram)**](./docs/01-use-case.md) - *Definicja aktorów i granic systemu autoryzacji.*
-2. [**Diagram Aktywności (Activity Diagram)**](./docs/02-activity-diagram.md) - *Przepływ procesu, ścieżki alternatywne i obsługa wyjątków.*
-3. [**Diagram Klas (Class Diagram)**](./docs/03-class-diagram.md) - *Struktura obiektowa, kardynalność i hermetyzacja danych.*
-4. [**Diagram Sekwencji (Sequence Diagram)**](./docs/04-sequence-diagram.md) - *Komunikacja sieciowa, wywołania API i zarządzanie sesją w czasie.*
-
-> **Uwaga:** Ścieżki do plików zakładają, że diagramy i ich opisy znajdują się w folderze `/docs`.
-
-## 🛠 Wykorzystane narzędzia i standardy
-* **Notacja:** UML 2.5
-* **Narzędzie do modelowania:** draw.io
-* **Paradygmaty:** Analiza obiektowa (OOA), REST, Client-Server Architecture
+Zadaniem tej sekcji jest pokazanie płynnego przejścia od abstrakcyjnych wymagań biznesowych (logowanie i bezpieczeństwo) do gotowego projektu architektonicznego. Diagramy te stanowią bezpośrednią wytyczną dla zespołów backendowych do zaprojektowania kontraktów API, struktury bazy danych oraz implementacji rygorystycznych mechanizmów bezpieczeństwa.
