@@ -2,8 +2,6 @@
 
 Diagram Klas przedstawia statyczną strukturę systemu, definiując główne encje, ich atrybuty (dane), metody (zachowania) oraz relacje między nimi. 
 
-Model został zaprojektowany z silnym naciskiem na bezpieczeństwo, hermetyzację danych oraz architektoniczną zasadę **Single Responsibility Principle (SRP)** – logika konta, profilu bezpieczeństwa i zarządzania sesją zostały wyraźnie odseparowane.
-
 ### Kluczowe klasy i ich odpowiedzialność biznesowa
 
 * **`User` (Użytkownik)**
@@ -13,7 +11,7 @@ Model został zaprojektowany z silnym naciskiem na bezpieczeństwo, hermetyzacj�
 * **`AuthSession` (Sesja Autoryzacyjna)**
   Obiekt tworzony po pomyślnym zalogowaniu. Przechowuje unikalny identyfikator sesji (`sessionId`), czas utworzenia (`createdAt`) oraz adres IP klienta (`ipAddress`). Odpowiada za utrzymanie i terminację dostępu.
 * **`TwoFactorAuth` (Autoryzacja Dwuskładnikowa)**
-  Moduł obsługujący jednorazowe kody (OTP). Zawiera kluczowe metody `generateCode()` oraz `verifyCode()`. Atrybut `expiresAt` bezpośrednio realizuje regułę biznesową "Session Timeout" (3 minuty ważności kodu).
+  Moduł obsługujący jednorazowe kody. Zawiera kluczowe metody `generateCode()` oraz `verifyCode()`. Atrybut `expiresAt` bezpośrednio realizuje regułę biznesową "Session Timeout" (3 minuty ważności kodu).
 
 ### Relacje obiektowe (Kardynalność)
 
