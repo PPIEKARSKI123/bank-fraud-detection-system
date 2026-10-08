@@ -21,4 +21,4 @@ Folder zawiera modele architektoniczne i strukturalne opracowane w notacji **UML
 
 ## 🔗 Cel folderu
 
-Zadaniem tej sekcji jest pokazanie płynnego przejścia od abstrakcyjnych wymagań biznesowych (logowanie i bezpieczeństwo) do gotowego projektu architektonicznego. Diagramy te stanowią bezpośrednią wytyczną dla zespołów backendowych do zaprojektowania kontraktów API, struktury bazy danych oraz implementacji rygorystycznych mechanizmów bezpieczeństwa.
+Zadaniem tej sekcji jest pokazanie płynnego przejścia od abstrakcyjnych wymagań biznesowych (logowanie i bezpieczeństwo) do gotowego projektu architektonicznego. Diagramy te stanowią bezpośrednią wytyczną dla zespołów backendowych do zaprojektowania kontraktów API, struktury bazy danych oraz implementacji mechanizmów bezpieczeństwa.
