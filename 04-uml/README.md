@@ -17,7 +17,7 @@ Folder zawiera modele architektoniczne i strukturalne opracowane w notacji **UML
 * **Aktorzy i Systemy:** Na diagramach Use Case i Sequence wyraźnie oddzielono użytkownika końcowego od zewnętrznych systemów infrastrukturalnych, stosując stereotyp `<<system>>` (np. dla Bramki SMS).
 * **Tory (Swimlanes):** Na diagramie aktywności zastosowano podział na tory (Użytkownik / System bankowy), precyzyjnie rozdzielając akcje wykonywane na urządzeniu klienta od logiki przetwarzanej na serwerze banku.
 * **Bramki i Warunki (Guards):** Ścieżki decyzyjne na diagramach aktywności i sekwencji oznaczono jasnymi warunkami w nawiasach kwadratowych (np. `[proby>5]`, `[isDigitalBankingBlocked = True]`), które stanowią bezpośrednie wytyczne do napisania logiki warunkowej w kodzie.
-* **Komunikacja i API:** Na diagramie sekwencji zastosowano konwencję nazewnictwa charakterystyczną dla architektury Client-Server i protokołu HTTP, modelując wywołania do konkretnych endpointów (np. `POST /api/auth/login`) oraz statusy odpowiedzi (`200 OK`).
+* **Komunikacja i API:** Na diagramie sekwencji zastosowano konwencję nazewnictwa charakterystyczną dla architektury Client-Server i protokołu HTTP, modelując wywołania do konkretnych endpointów (np. `POST /api/auth/login`).
 
 ## 🔗 Cel folderu
 
