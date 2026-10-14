@@ -1,6 +1,6 @@
 # System Detekcji i Obsługi Fraudów Bankowych (Case Study)
 
-Ten projekt to kompleksowa symulacja pracy Analityka Biznesowo-Systemowego. Przedstawia architekturę modułu odpowiedzialnego za wykrywanie oraz obsługę zgłoszeń oszustw finansowych (fraudów) dotyczących kart debetowych oraz kredytowych na infolinii bankowej – od zamodelowania procesu biznesowego, przez analizę systemową, aż po projekt relacyjnej bazy danych.
+Ten projekt to kompleksowa symulacja pracy Analityka Biznesowo-Systemowego. Przedstawia architekturę modułu odpowiedzialnego za wykrywanie oraz obsługę zgłoszeń oszustw finansowych (fraudów) dotyczących kart debetowych oraz kredytowych na infolinii bankowej – od zamodelowania procesu biznesowego, przez analizę systemową i projekt relacyjnej bazy danych, aż po zdefiniowanie zwinnych wymagań biznesowych (User Stories).
 
 ## Cel projektu
 
@@ -27,3 +27,4 @@ Projekt łączy perspektywę biznesową, systemową i techniczną:
 * `02-bpmn` - Diagramy procesów end-to-end.
 * `03-database` - Skrypty SQL (DDL/DML), słownik pojęć oraz diagram ERD.
 * `04-uml` - Diagramy modułu autoryzacji (Use Case, Activity, Class, Sequence).
+* `05-user-stories` - Zwinne wymagania biznesowe i systemowe (User Stories) zdefiniowane na podstawie modeli UML.
