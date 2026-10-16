@@ -1,6 +1,6 @@
 # User Stories
 
-Poniższy dokument zawiera przypadki użycia **UC-02 (Logowanie użytkownika i 2FA)** na mniejsze, niezależne historyjki użytkownika.
+Poniższy dokument zawiera przypadki użycia **UC-02 (Logowanie użytkownika i 2FA)** (opracowanego w notacji UML) na mniejsze, niezależne historyjki użytkownika.
 Obejmują one zarówno ścieżkę sukcesu (Happy Path), jak i rygorystyczne ścieżki wyjątków (Edge Cases) związane z bezpieczeństwem.
 
 ---
@@ -11,7 +11,7 @@ Obejmują one zarówno ścieżkę sukcesu (Happy Path), jak i rygorystyczne ści
 **aby** bezpiecznie dostać się na moje konto.
 
 **Kryteria Akceptacji:**
-1. Po podaniu poprawnych danych logowania, system wysyła jednorazowy kod OTP (SMS) lub powiadomienie PUSH (w zależności od preferencji klienta).
+1. Po podaniu poprawnych danych logowania, system wysyła jednorazowy kod OTP (SMS) lub powiadomienie PUSH (w zależności od ustawionej metody autoryzacji).
 2. **[Ścieżka błędu]:** W przypadku podania błędnego hasła lub niewłaściwego kodu 2FA, system natychmiast wyświetla komunikat o błędzie i uniemożliwia zalogowanie.
 3. **Session Timeout:** Czas ważności wygenerowanego kodu wynosi dokładnie 3 minuty. Po upływie tego czasu proces wygasa i wymaga ponownego rozpoczęcia procedury logowania.
 
@@ -20,10 +20,10 @@ Obejmują one zarówno ścieżkę sukcesu (Happy Path), jak i rygorystyczne ści
 ## Story 2: Zabezpieczenie przed atakiem Brute-Force (Tymczasowa Blokada)
 **Jako** Administrator Systemu,
 **chcę** aby aplikacja blokowała dostęp po serii nieudanych prób logowania,
-**aby** chronić konta klientów przed atakami słownikowymi i przejęciem.
+**aby** chronić konta klientów przed nieautoryzowanymi próbami dostępu.
 
 **Kryteria Akceptacji:**
-1. System zlicza każdą nieudaną próbę podania hasła lub kodu 2FA.
+1. System zlicza każdą nieudaną próbę podania loginu lub hasła.
 2. **[Ścieżka błędu]:** Po dokładnie 5 błędnych próbach z rzędu, system odcina dostęp do kanałów cyfrowych i wyświetla komunikat: *"Konto zostało tymczasowo zablokowane ze względów bezpieczeństwa"*.
 3. **Reset:** Po udanym logowaniu przed osiągnięciem limitu, licznik błędnych prób jest automatycznie resetowany do zera.
 
